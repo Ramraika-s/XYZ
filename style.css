@@ -1,0 +1,304 @@
+:root {
+    --forest-dark: rgb(26, 35, 46);
+    --forest-light: rgb(243, 244, 246);
+    --forest-accent: rgb(34, 197, 94);
+    --forest-accent-dark: rgb(21, 128, 61);
+    --content-bg: rgba(255, 255, 255, 0.05);
+    --nav-bg: rgb(255, 255, 255);
+}
+
+[data-theme='night'] {
+    --forest-dark: rgb(17, 24, 39);
+    --forest-light: rgb(229, 231, 235);
+    --forest-accent: rgb(52, 211, 153);
+    --forest-accent-dark: rgb(16, 185, 129);
+    --content-bg: rgba(17, 24, 39, 0.05);
+    --nav-bg: rgb(17, 24, 39);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--forest-dark);
+    color: var(--forest-light);
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.content-section {
+    background-color: var(--content-bg);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(var(--forest-accent), 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.content-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.5rem;
+    padding: 1px;
+    background: linear-gradient(to bottom right, rgba(var(--forest-accent), 0.2), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+#forest-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url('trees.svg');
+    background-repeat: repeat-x;
+    background-position: bottom;
+    opacity: 0.7;
+    transition: filter 1s;
+}
+
+[data-theme='night'] #forest-background {
+    filter: brightness(0.5) saturate(0.5);
+}
+
+#cursor-effect {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: screen;
+}
+
+header {
+    background-color: var(--nav-bg);
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: var(--forest-dark);
+    text-decoration: none;
+}
+
+#theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(to bottom, var(--forest-accent), var(--forest-accent-dark));
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    z-index: 1000;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+#theme-toggle:active {
+    transform: scale(0.95);
+}
+
+#theme-toggle svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--forest-light);
+}
+
+#theme-toggle .moon {
+    display: none;
+}
+
+[data-theme='night'] #theme-toggle .sun {
+    display: none;
+}
+
+[data-theme='night'] #theme-toggle .moon {
+    display: block;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    margin: 4rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h1, h2 {
+    margin-bottom: 1rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.project-card {
+    background-color: var(--forest-accent);
+    color: var(--forest-dark);
+    padding: 1rem;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.filter-buttons {
+    margin-bottom: 1rem;
+}
+
+.filter-btn {
+    background-color: var(--forest-accent-dark);
+    color: var(--forest-light);
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-btn.active {
+    background-color: var(--forest-accent);
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.skill-category {
+    flex: 1;
+    min-width: 200px;
+}
+
+.skill-category ul {
+    list-style-type: none;
+}
+
+.skill-category li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.skill-category li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--forest-accent);
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.contact-info {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    margin-right: 0.5rem;
+    color: var(--forest-accent);
+}
+
+.contact-info a {
+    color: var(--forest-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover {
+    color: var(--forest-accent);
+}
+
+footer {
+    background-color: var(--forest-dark);
+    color: var(--forest-light);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+}
+

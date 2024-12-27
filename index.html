@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivam Ramraika - Enchanted Forest Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</head>
+<body>
+    <div id="forest-background"></div>
+    <div id="cursor-effect"></div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <main>
+        <section id="home" class="content-section">
+            <h1>Shivam Ramraika</h1>
+            <p>Computer Science Student at KIIT University</p>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2>About Me</h2>
+            <p>I am a passionate Computer Science student with a keen interest in software development, AI, and machine learning. I strive to create impactful applications and continuously expand my knowledge in the field of technology.</p>
+        </section>
+
+        <section id="projects" class="content-section">
+            <h2>Projects</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="ai">AI</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="web">
+                    <h3>Calculator</h3>
+                    <p>A simple web-based calculator using HTML, CSS, and JavaScript.</p>
+                    <a href="https://github.com/Ramraika-s/codealpha_tasks/tree/main/Calculator" target="_blank">View Project</a>
+                </div>
+                <div class="project-card" data-category="web">
+                    <h3>Image Gallery</h3>
+                    <p>A basic image gallery project that allows users to view and filter images.</p>
+                    <a href="https://github.com/Ramraika-s/codealpha_tasks/tree/main/Image-Gallery" target="_blank">View Project</a>
+                </div>
+                <!-- Add more project cards here -->
+            </div>
+        </section>
+
+        <section id="skills" class="content-section">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Development Tools</h3>
+                    <ul>
+                        <li data-skill="VSCode">VSCode</li>
+                        <li data-skill="Android Studio">Android Studio</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Version Control</h3>
+                    <ul>
+                        <li data-skill="Git">Git</li>
+                        <li data-skill="GitHub">GitHub</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud Services</h3>
+                    <ul>
+                        <li data-skill="Firebase">Firebase</li>
+                        <li data-skill="Hugging Face">Hugging Face</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2>Contact Me</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> <a href="mailto:shivamramraika@gmail.com">shivamramraika@gmail.com</a></p>
+                <p><i class="fab fa-github"></i> <a href="https://github.com/Ramraika-s" target="_blank">GitHub Profile</a></p>
+                <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/shivam-ramraika-b9a2a7228/" target="_blank">LinkedIn Profile</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Bhubaneswar, Odisha, India</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Shivam Ramraika. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
